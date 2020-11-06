@@ -1,0 +1,77 @@
+= {{cookiecutter.antora_title}}
+
+// This is a single line comment!
+
+////
+This is a multiline comment!
+This is a multiline comment!
+This is a multiline comment!
+////
+
+
+This is the ((first page)) of this new ((documentation)) website made with https://antora.org/[Antora].
+
+== Images
+
+// You can add images with the image:: statement:
+
+image::vshn_logo.png[]
+
+== Various SVG Logos
+
+// TODO: Delete unused asset files from the final documentation
+
+More in the `docs/modules/ROOT/assets/images` folder:
+
+image:azure.svg[width=150]
+image:google-cloud.svg[width=150]
+image:slack.svg[width=150]
+
+image:aws.svg[width=150]
+image:red-hat.svg[width=150]
+image:docker.svg[width=150]
+
+== Font Awesome Icons
+
+Font Awesome icons: icon:tags[] icon:heart[size=2x,role="red"]
+
+Download VSHN handbook: icon:download[link="https://handbook.vshn.ch/handbook.pdf"]
+
+More icons here: https://fontawesome.com/icons?d=gallery&m=free
+
+== Admonition Blocks
+
+// Admonition blocks are useful to call for attention
+
+TIP: This is a tip
+
+NOTE: This is a note
+
+WARNING: This is a warning
+
+CAUTION: You have been warned
+
+IMPORTANT: This is very important
+
+== Bullet Points
+
+// Use the star symbol, not the dash (like in Markdown!)
+
+* Foo
+* Bar
+* World
+
+== Numbered List
+
+// No need to write down the numbers, just use dots
+
+. First
+. Second
+. First
+
+== Definition List
+
+// Useful when explaining technical terms
+
+Thing:: A thing is defined here
+Another Thing:: Another thing is defined here

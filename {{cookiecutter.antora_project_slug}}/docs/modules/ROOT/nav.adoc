@@ -1,0 +1,16 @@
+* xref:index.adoc[Home]
+
+.Pages
+* xref:second.adoc[Second Page]
+* xref:diagram.adoc[Diagram Sample]
+* xref:math.adoc[Math Equations]
+* xref:source.adoc[Source Code]
+
+.About this documentation
+* xref:colophon.adoc[Colophon]
+
+.Downloads
+* link:/{{cookiecutter.antora_project_slug}}.pdf[PDF]
+* link:/{{cookiecutter.antora_project_slug}}.epub[EPUB]
+* link:/{{cookiecutter.antora_project_slug}}.mobi[Kindle]
+* link:/{{cookiecutter.antora_project_slug}}.1[man page]

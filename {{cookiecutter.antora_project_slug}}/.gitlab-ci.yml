@@ -1,0 +1,47 @@
+variables:
+  PROJECT_NAME: vshn-{{cookiecutter.antora_project_slug}}
+  MASTER_SEARCH_IMAGE: vshn/embedded-search-engine:1.3
+  MAIN_IMAGE: registry.appuio.ch/vshn-{{cookiecutter.antora_project_slug}}/vshn-{{cookiecutter.antora_project_slug}}-main:latest
+  SEARCH_IMAGE: registry.appuio.ch/vshn-{{cookiecutter.antora_project_slug}}/vshn-{{cookiecutter.antora_project_slug}}-search:latest
+
+stages:
+  - build
+  - deploy
+
+.build-docker:
+  stage: build
+  image: docker:stable
+  services:
+    - docker:dind
+  tags:
+    - dockerbuild
+  script:
+    - docker login -u gitlab-ci -p ${APPUIO_REGISTRY_TOKEN} registry.appuio.ch
+    - docker pull $MAIN_IMAGE || true
+    - docker build --cache-from $MAIN_IMAGE -t $MAIN_IMAGE -f deployment/main/Dockerfile .
+    - if [ ${CI_COMMIT_REF_NAME} == "master" ]; then docker push $MAIN_IMAGE; fi
+    - docker pull $MASTER_SEARCH_IMAGE || true
+    - docker build --cache-from $SEARCH_IMAGE -t $SEARCH_IMAGE -f deployment/search/Dockerfile .
+    - if [ ${CI_COMMIT_REF_NAME} == "master" ]; then docker push $SEARCH_IMAGE; fi
+
+develop:build:
+  extends: .build-docker
+  except:
+    - master
+
+master:build:
+  extends: .build-docker
+  only:
+    - master
+
+master:deploy:
+  stage: deploy
+  image: docker.io/appuio/oc:v3.11
+  environment:
+    name: production
+    url: https://{{cookiecutter.antora_project_slug}}.vshn.ch
+  script:
+    - oc -n ${PROJECT_NAME} apply -f deployment/
+    - oc -n ${PROJECT_NAME} rollout latest dc/vshn-{{cookiecutter.antora_project_slug}}
+  only:
+    - master

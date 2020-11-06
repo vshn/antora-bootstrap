@@ -1,0 +1,6 @@
+= CHANGELOG
+
+== Version 1.0 (Fri 6 Nov 2020)
+
+* First version of this project
+

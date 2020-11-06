@@ -1,0 +1,27 @@
+= {{cookiecutter.antora_title}}
+
+This is an https://antora.org/[Antora] documentation website.
+
+== Basic Antora Setup
+
+* The documentation pages are stored in the `docs/modules/ROOT/pages` folder.
+* Images are stored in teh `docs/modules/ROOT/assets/images` folder.
+* E-book specific files are located in the `docs/ebook` folder, including the https://www.gimp.org/[Gimp] template of the cover.
+
+== Usage
+
+. If not done yet, `git init && git add . && git commit -m "First commit"` to create a new Git repository and commit the current state.
+. `make html` to create the Antora website in the `_public` subfolder.
+. `make pdf epub kindle manpage` to create the corresponding e-books in the `_public` subfolder.
+
+== Docker
+
+You can create a Docker image out of this project:
+
+`docker build -t {{ cookiecutter.antora_project_slug }} -f deployment/main/Dockerfile .`
+
+The project includes sample deployment YAML files for a suitable Kubernetes deployment.
+
+== GitLab
+
+This project includes a ready-to-use `.gitlab-ci.yml` file for GitLab integration.

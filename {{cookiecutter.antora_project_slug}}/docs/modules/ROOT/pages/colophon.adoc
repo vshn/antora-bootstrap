@@ -1,0 +1,9 @@
+= Colophon
+
+image::vshn_logo.png[]
+
+Copyright © 2014-{localyear} https://vshn.ch/[VSHN AG]–All Rights Reserved.
+
+Published in Switzerland on {localdatetime}.
+
+Created with https://antora.org/[Antora] and https://asciidoctor.org/[Asciidoctor].

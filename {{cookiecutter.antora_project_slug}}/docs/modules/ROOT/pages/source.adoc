@@ -1,0 +1,31 @@
+= Source Code
+
+This page demonstrates the insertion of source code in a page.
+
+// You can use callouts to give context to certain lines of code
+
+[source,go]
+----
+package main
+
+import (
+	"fyne.io/fyne/app"
+	"fyne.io/fyne/widget"
+)
+
+func main() {
+	a := app.New() // <1>
+	w := a.NewWindow("Hello")
+	w.SetContent(widget.NewVBox(
+		widget.NewLabel("Hello Fyne!"),
+		widget.NewButton("Quit", func() { // <2>
+			a.Quit()
+		}),
+	))
+	w.ShowAndRun() // <3>
+}
+----
+
+<1> Birth of a new app
+<2> The magic of lambdas
+<3> Now you can see it

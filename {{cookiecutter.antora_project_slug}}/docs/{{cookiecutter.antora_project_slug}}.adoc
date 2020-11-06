@@ -1,0 +1,93 @@
+// Settings for manpage
+ifdef::backend-manpage[]
+= vshn-{{cookiecutter.antora_project_slug}}(1)
+:manname: {{cookiecutter.antora_project_slug}}
+:mantitle: {{cookiecutter.antora_title}}
+:leveloffset: +1
+endif::[]
+
+:author: VSHN AG
+:revdate: {docdate}
+:revnumber: 1.0
+:email: {{cookiecutter.author_email}}
+:copyright: CC-BY-SA 3.0
+:doctitle: {{cookiecutter.antora_title}}
+:producer: VSHN AG
+:creator: {{cookiecutter.author_name}}
+:description: {{cookiecutter.ebook_description}}
+:keywords: {{cookiecutter.ebook_keywords}}
+:front-cover-image: ebook/images/cover.png
+:lang: en
+:imagesdir: {docdir}/modules/ROOT/assets/images
+
+
+// Settings for PDF
+ifdef::backend-pdf[]
+// :media: prepress
+:title-logo-image: image:{docdir}/ebook/images/logo.png[Logo,100,100]
+:leveloffset: +1
+endif::[]
+
+// Settings for EPUB3
+ifdef::backend-epub3[]
+:imagesdir: modules/ROOT/assets/images
+:imagesoutdir: {docdir}/modules/ROOT/assets/images
+:leveloffset: +1
+endif::[]
+
+// Settings for Kindle (inherits values from EPUB3)
+ifdef::ebook-format-kf8[]
+endif::[]
+
+
+
+// Include chapters: always leave blank spaces between the includes!
+[preface]
+include::modules/ROOT/pages/index.adoc[]
+
+
+
+// Part header
+ifdef::backend-pdf[]
+// Parts must have level
+:leveloffset: -1
+
+= Part 1: First Part
+
+image::vshn_logo.png[]
+
+[partintro]
+--
+This is a longer description of this part
+--
+
+:leveloffset: +1
+endif::[]
+
+include::modules/ROOT/pages/second.adoc[]
+
+include::modules/ROOT/pages/diagram.adoc[]
+
+include::modules/ROOT/pages/math.adoc[]
+
+include::modules/ROOT/pages/source.adoc[]
+
+
+
+// Special sections at the end
+[appendix]
+include::../CHANGELOG.adoc[]
+
+[appendix]
+include::../README.adoc[]
+
+// Copyright information and other details
+[colophon]
+include::modules/ROOT/pages/colophon.adoc[]
+
+
+
+ifdef::backend-pdf[]
+[index]
+= Index
+endif::[]

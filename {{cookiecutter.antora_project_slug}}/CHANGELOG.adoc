@@ -1,0 +1,9 @@
+= CHANGELOG
+
+== Version 1.0
+
+* Project created by {{cookiecutter.author_name}} <{{cookiecutter.author_email}}>>
+* First version
+
+TODO: Remember to update this file regularly
+

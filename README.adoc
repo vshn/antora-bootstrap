@@ -1,0 +1,20 @@
+= Cookiecutter Template for Antora Documentation Sites
+
+This project provides a https://cookiecutter.readthedocs.io/[Cookiecutter] template for creating https://antora.org/[Antora] documentation websites.
+
+== Usage
+
+. `cookiecutter git@git.vshn.net:vshn/antora-bootstrap`
+. Follow the prompts asking for information
+. `cd` into the newly created folder
+. `git init && git add . && git commit -m "First commit"` to create a new Git repository and commit the current state
+. `make html` to create the Antora website in the `_public` subfolder
+. `make pdf epub manpage kindle` to create the corresponding e-books
+
+== Requirements
+
+The requirements for this project are:
+
+* Python 3.x
+* https://cookiecutter.readthedocs.io/[Cookiecutter] 1.7 or higher.
+

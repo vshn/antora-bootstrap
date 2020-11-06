@@ -1,0 +1,50 @@
+apiVersion: v1
+kind: DeploymentConfig
+metadata:
+  name: vshn-{{cookiecutter.antora_project_slug}}
+  labels:
+    app: vshn-{{cookiecutter.antora_project_slug}}
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: vshn-{{cookiecutter.antora_project_slug}}
+    spec:
+      containers:
+        - name: vshn-{{cookiecutter.antora_project_slug}}-main
+          image: docker-registry.default.svc:5000/vshn-{{cookiecutter.antora_project_slug}}/vshn-{{cookiecutter.antora_project_slug}}-main:latest
+          imagePullPolicy: Always
+          readinessProbe:
+            httpGet:
+              path: "/index.html"
+              port: 8080
+            periodSeconds: 60
+          livenessProbe:
+            httpGet:
+              path: "/index.html"
+              port: 8080
+            periodSeconds: 60
+            initialDelaySeconds: 5
+          ports:
+          - name: http
+            containerPort: 8080
+            protocol: TCP
+        - name: vshn-{{cookiecutter.antora_project_slug}}-search
+          image: docker-registry.default.svc:5000/vshn-{{cookiecutter.antora_project_slug}}/vshn-{{cookiecutter.antora_project_slug}}-search:latest
+          imagePullPolicy: Always
+          readinessProbe:
+            httpGet:
+              path: "/search?q=readinessProbe"
+              port: 3000
+            periodSeconds: 60
+          livenessProbe:
+            httpGet:
+              path: "/search?q=livenessProbe"
+              port: 3000
+            periodSeconds: 60
+            initialDelaySeconds: 5
+          ports:
+          - name: http
+            containerPort: 3000
+            protocol: TCP

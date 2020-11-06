@@ -1,0 +1,34 @@
+= Diagrams
+
+This example shows how to embed a text-based ((diagram)) in your documentation.
+
+You can use all the formats supported in our Kroki instance; more information at https://vshn-kroki.appuioapp.ch/ and https://kroki.io/.
+
+[ditaa, diagram-sample, svg]
+....
+                          +-------------+
+                          |             |
+                          | Exponential |
+                          |             |
+                          +-------------+
+                                 |
+                          lambda |
+                                 v
++-------------+           +-------------+           +-------------+
+|             |   tau     |             |   lambda  |             |
+|  Lognormal  |---------->|    Gamma    |<----------|   Poisson   |
+|             |           |             |---+       |             |
++-------------+           +-------------+   |       +-------------+
+      |                         ^ ^         | beta
+      |                   tau   | |         |
+      | tau                     | +---------+
+      |                   +-------------+
+      +------------------>|             |
+                          |   Normal    |
+                          |             |----+
+                          +-------------+    |
+                                     ^       | mu
+                                     |       |
+                                     +-------+
+....
+

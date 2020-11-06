@@ -1,0 +1,18 @@
+= Math Formulas
+
+This page shows how to integrate ((math)) content in your documentation.
+
+Using standard latexmath:[\LaTeX] syntax, as a ((block)):
+
+// Use the statement below to deactivate `vale` temporarily
+pass:[<!-- vale off -->]
+
+[stem]
+++++
+\sqrt{37} = \sqrt{\frac{73^2-1}{12^2}} \approx \frac{73}{12} (1 - \frac{1}{2\cdot73^2})
+++++
+
+Another one, ((inline)): stem:[\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}]
+
+// Use the statement below to re-enable `vale` validation for the rest of the text
+pass:[<!-- vale on -->]
