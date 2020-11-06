@@ -25,8 +25,6 @@ On the other hand, projects in charge of documentation building do not always in
 
 == Usage
 
-. If not done yet, `git init && git add . && git commit -m "First commit"` to create a new Git repository and commit the current state.
-** Antora requires that all documentation is contained within a Git repository.
 . `make preview` to launch a "live preview" version of the documentation.
 . `make html` to create the Antora website in the `_public` subfolder.
 . `make pdf epub kindle manpage` to create the corresponding e-books in the `_public` subfolder.
