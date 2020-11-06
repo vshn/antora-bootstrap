@@ -1,6 +1,6 @@
 site:
-  title: {{cookiecutter.antora_title}}
-  url: {{cookiecutter.antora_project_url}}
+  title: {{cookiecutter.project_title}}
+  url: {{cookiecutter.project_url}}
   start_page: {{cookiecutter.antora_prefix}}::index.adoc
   keys:
     google_analytics: ''
@@ -9,7 +9,7 @@ content:
   - url: .                 # The current folder is a git repo
     branches: HEAD         # "HEAD" uses whichever branch is currently checked out
     start_path: docs
-    edit_url: 'https://git.vshn.net/vshn/{{cookiecutter.antora_project_slug}}/edit/develop/{path}'
+    edit_url: 'https://git.vshn.net/vshn/{{cookiecutter.project_slug}}/edit/develop/{path}'
 ui:
   bundle:
 {% if cookiecutter.antora_theme == "vshn" %}

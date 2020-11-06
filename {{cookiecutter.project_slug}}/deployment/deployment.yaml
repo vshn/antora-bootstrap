@@ -1,19 +1,19 @@
 apiVersion: v1
 kind: DeploymentConfig
 metadata:
-  name: vshn-{{cookiecutter.antora_project_slug}}
+  name: vshn-{{cookiecutter.project_slug}}
   labels:
-    app: vshn-{{cookiecutter.antora_project_slug}}
+    app: vshn-{{cookiecutter.project_slug}}
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: vshn-{{cookiecutter.antora_project_slug}}
+        app: vshn-{{cookiecutter.project_slug}}
     spec:
       containers:
-        - name: vshn-{{cookiecutter.antora_project_slug}}-main
-          image: docker-registry.default.svc:5000/vshn-{{cookiecutter.antora_project_slug}}/vshn-{{cookiecutter.antora_project_slug}}-main:latest
+        - name: vshn-{{cookiecutter.project_slug}}-main
+          image: docker-registry.default.svc:5000/vshn-{{cookiecutter.project_slug}}/vshn-{{cookiecutter.project_slug}}-main:latest
           imagePullPolicy: Always
           readinessProbe:
             httpGet:
@@ -30,8 +30,8 @@ spec:
           - name: http
             containerPort: 8080
             protocol: TCP
-        - name: vshn-{{cookiecutter.antora_project_slug}}-search
-          image: docker-registry.default.svc:5000/vshn-{{cookiecutter.antora_project_slug}}/vshn-{{cookiecutter.antora_project_slug}}-search:latest
+        - name: vshn-{{cookiecutter.project_slug}}-search
+          image: docker-registry.default.svc:5000/vshn-{{cookiecutter.project_slug}}/vshn-{{cookiecutter.project_slug}}-search:latest
           imagePullPolicy: Always
           readinessProbe:
             httpGet:

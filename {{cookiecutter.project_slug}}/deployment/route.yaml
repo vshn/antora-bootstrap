@@ -1,13 +1,13 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: vshn-{{cookiecutter.antora_project_slug}}
+  name: vshn-{{cookiecutter.project_slug}}
   labels:
-    app: vshn-{{cookiecutter.antora_project_slug}}
+    app: vshn-{{cookiecutter.project_slug}}
   annotations:
     kubernetes.io/tls-acme: "true"
 spec:
-  host: {{cookiecutter.antora_project_slug}}.appuioapp.ch
+  host: {{cookiecutter.project_slug}}.appuioapp.ch
   port:
     targetPort: http
   tls:
@@ -15,4 +15,4 @@ spec:
     termination: edge
   to:
     kind: Service
-    name: vshn-{{cookiecutter.antora_project_slug}}
+    name: vshn-{{cookiecutter.project_slug}}

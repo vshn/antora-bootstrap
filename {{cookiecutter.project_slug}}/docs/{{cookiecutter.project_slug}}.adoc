@@ -1,8 +1,8 @@
 // Settings for manpage
 ifdef::backend-manpage[]
-= vshn-{{cookiecutter.antora_project_slug}}(1)
-:manname: {{cookiecutter.antora_project_slug}}
-:mantitle: {{cookiecutter.antora_title}}
+= vshn-{{cookiecutter.project_slug}}(1)
+:manname: {{cookiecutter.project_slug}}
+:mantitle: {{cookiecutter.project_title}}
 :leveloffset: +1
 endif::[]
 
@@ -11,7 +11,7 @@ endif::[]
 :revnumber: 1.0
 :email: {{cookiecutter.author_email}}
 :copyright: CC-BY-SA 3.0
-:doctitle: {{cookiecutter.antora_title}}
+:doctitle: {{cookiecutter.project_title}}
 :producer: VSHN AG
 :creator: {{cookiecutter.author_name}}
 :description: {{cookiecutter.ebook_description}}

@@ -1,4 +1,4 @@
-= {{cookiecutter.antora_title}}
+= {{cookiecutter.project_title}}
 
 This is an https://antora.org/[Antora] documentation website.
 
@@ -18,7 +18,7 @@ This is an https://antora.org/[Antora] documentation website.
 
 You can create a Docker image out of this project:
 
-`docker build -t {{ cookiecutter.antora_project_slug }} -f deployment/main/Dockerfile .`
+`docker build -t {{ cookiecutter.project_slug }} -f deployment/main/Dockerfile .`
 
 The project includes sample deployment YAML files for a suitable Kubernetes deployment.
 

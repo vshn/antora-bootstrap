@@ -1,4 +1,4 @@
-= {{cookiecutter.antora_title}}
+= {{cookiecutter.project_title}}
 
 // This is a single line comment!
 

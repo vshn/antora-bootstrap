@@ -45,10 +45,10 @@ preview:
 
 .PHONY: html pdf manpage epub kindle
 html:    $(out_dir)/index.html
-pdf:     $(out_dir)/{{cookiecutter.antora_project_slug}}.pdf
-manpage: $(out_dir)/{{cookiecutter.antora_project_slug}}.1
-epub:    $(out_dir)/{{cookiecutter.antora_project_slug}}.epub
-kindle:  $(out_dir)/{{cookiecutter.antora_project_slug}}-kf8.epub
+pdf:     $(out_dir)/{{cookiecutter.project_slug}}.pdf
+manpage: $(out_dir)/{{cookiecutter.project_slug}}.1
+epub:    $(out_dir)/{{cookiecutter.project_slug}}.epub
+kindle:  $(out_dir)/{{cookiecutter.project_slug}}-kf8.epub
 
 $(out_dir)/index.html: playbook.yml $(pages)
 	$(antora_cmd) $(antora_opts) $<
