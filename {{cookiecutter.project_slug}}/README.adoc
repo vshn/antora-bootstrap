@@ -12,17 +12,22 @@ This is an https://antora.org/[Antora] documentation website, available at {{coo
 
 There are two possible Antora projects:
 
-* Those including a `playbook.yml` files; and
-* Those without it.
+* Those including both a `playbook.yml` and `docs/antora.yml` files; and
+* Those only including one of them and not the other.
+
+The file `docs/antora.yml` defines a documentation component including several modules. It specifies the name and entry point of a component.
+
+On the other hand, the file `playbook.yml` is used to coalesce various documentation components into one website. It specifies the build order and the style to apply to the final website.
 
 If your project only requires to be documented, but does _not_ take the responsibility for the build process of the documentation, you can remove the `.gitlab-ci.yml`, `Makefile`, and `playbook.yml` files.
 
-On the other hand, projects in charge of documentation building do not always include documentation themselves; in those cases the `docs` folder can be safely deleted.
+On the other hand, projects in charge of documentation building do not always include documentation themselves; in those cases the `docs` folder can be safely deleted, only leaving the `playbook.yml` file.
 
 == Usage
 
 . If not done yet, `git init && git add . && git commit -m "First commit"` to create a new Git repository and commit the current state.
 ** Antora requires that all documentation is contained within a Git repository.
+. `make preview` to launch a "live preview" version of the documentation.
 . `make html` to create the Antora website in the `_public` subfolder.
 . `make pdf epub kindle manpage` to create the corresponding e-books in the `_public` subfolder.
 . `make clean` to remove all build products.
