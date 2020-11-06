@@ -7,6 +7,7 @@
     "ebook_filename": "{{ cookiecutter.antora_project_slug }}",
     "ebook_description": "A description for your e-book",
     "ebook_keywords": "VSHN, Antora, e-book, PDF, EPUB, Kindle",
+    "git_main_branch": "master",
     "author_name": "VSHNeer",
     "author_email": "info@vshn.ch"
 }

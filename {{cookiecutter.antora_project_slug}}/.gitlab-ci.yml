@@ -19,22 +19,22 @@ stages:
     - docker login -u gitlab-ci -p ${APPUIO_REGISTRY_TOKEN} registry.appuio.ch
     - docker pull $MAIN_IMAGE || true
     - docker build --cache-from $MAIN_IMAGE -t $MAIN_IMAGE -f deployment/main/Dockerfile .
-    - if [ ${CI_COMMIT_REF_NAME} == "master" ]; then docker push $MAIN_IMAGE; fi
+    - if [ ${CI_COMMIT_REF_NAME} == "{{cookiecutter.git_main_branch}}" ]; then docker push $MAIN_IMAGE; fi
     - docker pull $MASTER_SEARCH_IMAGE || true
     - docker build --cache-from $SEARCH_IMAGE -t $SEARCH_IMAGE -f deployment/search/Dockerfile .
-    - if [ ${CI_COMMIT_REF_NAME} == "master" ]; then docker push $SEARCH_IMAGE; fi
+    - if [ ${CI_COMMIT_REF_NAME} == "{{cookiecutter.git_main_branch}}" ]; then docker push $SEARCH_IMAGE; fi
 
 develop:build:
   extends: .build-docker
   except:
-    - master
+    - {{cookiecutter.git_main_branch}}
 
-master:build:
+{{cookiecutter.git_main_branch}}:build:
   extends: .build-docker
   only:
-    - master
+    - {{cookiecutter.git_main_branch}}
 
-master:deploy:
+{{cookiecutter.git_main_branch}}:deploy:
   stage: deploy
   image: docker.io/appuio/oc:v3.11
   environment:
@@ -44,4 +44,4 @@ master:deploy:
     - oc -n ${PROJECT_NAME} apply -f deployment/
     - oc -n ${PROJECT_NAME} rollout latest dc/vshn-{{cookiecutter.antora_project_slug}}
   only:
-    - master
+    - {{cookiecutter.git_main_branch}}

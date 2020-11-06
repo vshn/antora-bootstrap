@@ -1,6 +1,6 @@
 name: {{cookiecutter.antora_prefix}}
 title: {{cookiecutter.antora_title}}
-version: master
+version: {{cookiecutter.git_main_branch}}
 start_page: ROOT:index.adoc
 nav:
 - modules/ROOT/nav.adoc
