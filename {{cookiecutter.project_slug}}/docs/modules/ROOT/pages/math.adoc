@@ -4,8 +4,10 @@ This page shows how to integrate ((math)) content in your documentation.
 
 Using standard latexmath:[\LaTeX] syntax, as a ((block)):
 
-// Use the statement below to deactivate `vale` temporarily
+// Use the statements below to deactivate `vale` temporarily
+ifndef::backend-pdf[]
 pass:[<!-- vale off -->]
+endif::[]
 
 [stem]
 ++++
@@ -14,5 +16,7 @@ pass:[<!-- vale off -->]
 
 Another one, ((inline)): stem:[\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}]
 
-// Use the statement below to re-enable `vale` validation for the rest of the text
+// Use the statements below to re-enable `vale` validation for the rest of the text
+ifndef::backend-pdf[]
 pass:[<!-- vale on -->]
+endif::[]
