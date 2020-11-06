@@ -1,26 +1,43 @@
 = {{cookiecutter.project_title}}
 
-This is an https://antora.org/[Antora] documentation website.
+This is an https://antora.org/[Antora] documentation website, available at {{cookiecutter.project_url}}.
 
 == Basic Antora Setup
 
 * The documentation pages are stored in the `docs/modules/ROOT/pages` folder.
-* Images are stored in teh `docs/modules/ROOT/assets/images` folder.
+* Images are stored in the `docs/modules/ROOT/assets/images` folder.
 * E-book specific files are located in the `docs/ebook` folder, including the https://www.gimp.org/[Gimp] template of the cover.
+
+== Different Kinds of Antora Websites
+
+There are two possible Antora projects:
+
+* Those including a `playbook.yml` files; and
+* Those without it.
+
+If your project only requires to be documented, but does _not_ take the responsibility for the build process of the documentation, you can remove the `.gitlab-ci.yml`, `Makefile`, and `playbook.yml` files.
+
+On the other hand, projects in charge of documentation building do not always include documentation themselves; in those cases the `docs` folder can be safely deleted.
 
 == Usage
 
 . If not done yet, `git init && git add . && git commit -m "First commit"` to create a new Git repository and commit the current state.
+** Antora requires that all documentation is contained within a Git repository.
 . `make html` to create the Antora website in the `_public` subfolder.
 . `make pdf epub kindle manpage` to create the corresponding e-books in the `_public` subfolder.
+. `make clean` to remove all build products.
 
 == Docker
 
 You can create a Docker image out of this project:
 
-`docker build -t {{ cookiecutter.project_slug }} -f deployment/main/Dockerfile .`
+[source,bash]
+----
+$ docker build -t {{ cookiecutter.project_slug }} -f deployment/main/Dockerfile .
+$ docker run --rm --detach --publish 8080:8080 {{ cookiecutter.project_slug }}
+----
 
-The project includes sample deployment YAML files for a suitable Kubernetes deployment.
+The project includes sample YAML files for a suitable Kubernetes deployment.
 
 == GitLab
 
