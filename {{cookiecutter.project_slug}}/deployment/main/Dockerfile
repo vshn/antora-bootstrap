@@ -39,7 +39,7 @@ RUN generate-vshn-epub3 docs/{{cookiecutter.project_slug}}.adoc --attribute eboo
 
 # ---------- STEP 5 ----------
 # Docker image only containing nginx and the freshly built documentation
-FROM vshn/nginx:1.0
+FROM vshn/nginx:1.18.0
 
 # Finally, copy the contents of the documentation to be served
 COPY --from=antora /build/_public /usr/share/nginx/html
