@@ -45,3 +45,18 @@ The project includes sample YAML files for a suitable Kubernetes deployment.
 == GitLab
 
 This project includes a ready-to-use `.gitlab-ci.yml` file for GitLab integration.
+
+== OpenShift GitLab CI Pipeline Setup
+
+. Create project in https://control.vshn.net/appuio/projects
+. Create credentials
++
+----
+oc create sa gitlab-ci
+oc adm policy add-role-to-user edit -z gitlab-ci
+oc sa get-token gitlab-ci
+----
+. Configure the token as CI/CD variable `APPUIO_REGISTRY_TOKEN` in GitLab: Settings -> CI/CD -> Variables
+. Add Kubernetes Cluster under Operations -> Kubernetes (See existing docs projects for details)
+. Check that the files in `deployment/` are what you actually want
+
