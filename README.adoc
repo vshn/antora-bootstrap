@@ -4,7 +4,7 @@ This project provides a https://cookiecutter.readthedocs.io/[Cookiecutter] templ
 
 == Usage
 
-. `cookiecutter git@git.vshn.net:vshn/antora-bootstrap`
+. `cookiecutter https://github.com/vshn/antora-bootstrap.git`
 . Follow the prompts asking for information
 . `cd` into the newly created folder
 . `make html` to create the Antora website in the `_public` subfolder
