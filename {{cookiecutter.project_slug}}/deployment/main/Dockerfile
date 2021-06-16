@@ -18,7 +18,7 @@ RUN make manpage asciidoctor_cmd=asciidoctor
 
 # ---------- STEP 3 ----------
 # Build the documentation in PDF
-FROM vshn/asciidoctor-pdf:1.5.3 AS asciidoctor-pdf
+FROM vshn/asciidoctor-pdf:1.6.0 AS asciidoctor-pdf
 
 # The base image uses `/documents` as workdir, but has also declared this a
 # volume. This results in files written there to be lost in following steps.
