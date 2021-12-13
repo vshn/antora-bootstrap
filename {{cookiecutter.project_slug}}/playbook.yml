@@ -13,7 +13,7 @@ content:
 ui:
   bundle:
 {% if cookiecutter.antora_theme == "vshn" %}
-    url: https://github.com/vshn/antora-ui-default/releases/download/2.0.4/ui-bundle.zip
+    url: https://github.com/vshn/antora-ui-default/releases/download/2.0.15/ui-bundle.zip
 {% elif cookiecutter.antora_theme == "appuio" %}
     url: https://github.com/appuio/antora-ui-default/releases/download/1.0/ui-bundle.zip
 {% elif cookiecutter.antora_theme == "syn" %}
