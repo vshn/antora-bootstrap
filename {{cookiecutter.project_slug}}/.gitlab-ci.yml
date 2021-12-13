@@ -1,6 +1,6 @@
 variables:
   PROJECT_NAME: vshn-{{cookiecutter.project_slug}}
-  MASTER_SEARCH_IMAGE: vshn/embedded-search-engine:1.3
+  MASTER_SEARCH_IMAGE: vshn/embedded-search-engine:1.4
   MAIN_IMAGE: registry.appuio.ch/vshn-{{cookiecutter.project_slug}}/vshn-{{cookiecutter.project_slug}}-main:latest
   SEARCH_IMAGE: registry.appuio.ch/vshn-{{cookiecutter.project_slug}}/vshn-{{cookiecutter.project_slug}}-search:latest
 

@@ -1,6 +1,6 @@
 # ---------- STEP 1 ----------
 # Index the project files
-FROM vshn/antora-indexer-cli:1.6 as indexer
+FROM vshn/antora-indexer-cli:1.10 as indexer
 
 WORKDIR /build
 COPY . /build
@@ -12,7 +12,7 @@ RUN \
 
 # ---------- STEP 2 ----------
 # Docker image only containing the search engine and the freshly built index
-FROM vshn/embedded-search-engine:1.3
+FROM vshn/embedded-search-engine:1.4
 
 # Copy the index of the search engine
 COPY --from=indexer /index/files.json /site/index/files.json

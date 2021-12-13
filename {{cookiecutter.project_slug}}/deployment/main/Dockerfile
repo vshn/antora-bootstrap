@@ -1,6 +1,6 @@
 # ---------- STEP 1 ----------
 # Build the documentation in web format
-FROM vshn/antora:2.3.3 AS antora
+FROM vshn/antora:2.3.3-1 AS antora
 
 WORKDIR /build
 COPY . /build
@@ -18,7 +18,7 @@ RUN make manpage asciidoctor_cmd=asciidoctor
 
 # ---------- STEP 3 ----------
 # Build the documentation in PDF
-FROM vshn/asciidoctor-pdf:1.6.0 AS asciidoctor-pdf
+FROM vshn/asciidoctor-pdf:1.14.0 AS asciidoctor-pdf
 
 # The base image uses `/documents` as workdir, but has also declared this a
 # volume. This results in files written there to be lost in following steps.
@@ -27,8 +27,8 @@ COPY . /build
 RUN generate-vshn-pdf docs/{{cookiecutter.project_slug}}.adoc
 
 # ---------- STEP 4 ----------
-# Build the documentation in PDF
-FROM vshn/asciidoctor-epub3:1.4.1 AS asciidoctor-epub3
+# Build the documentation in EPUB
+FROM vshn/asciidoctor-epub3:1.14.0 AS asciidoctor-epub3
 
 # The base image uses `/documents` as workdir, but has also declared this a
 # volume. This results in files written there to be lost in following steps.
@@ -39,7 +39,7 @@ RUN generate-vshn-epub3 docs/{{cookiecutter.project_slug}}.adoc --attribute eboo
 
 # ---------- STEP 5 ----------
 # Docker image only containing nginx and the freshly built documentation
-FROM vshn/nginx:1.21.1
+FROM vshn/nginx:1.21.1.2
 
 # Finally, copy the contents of the documentation to be served
 COPY --from=antora /build/_public /usr/share/nginx/html
