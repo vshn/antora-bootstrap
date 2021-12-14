@@ -27,7 +27,7 @@ asciidoc:
     experimental: ''
     stem: ''
     icons: font
-    kroki-server-url: https://vshn-kroki.appuioapp.ch
+    kroki-server-url: https://vshn-kroki.apps.cloudscale-lpg-2.appuio.cloud/
     kroki-fetch-diagram: ''
   extensions:
   - asciidoctor-kroki
