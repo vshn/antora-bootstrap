@@ -2,7 +2,7 @@
 
 This example shows how to embed a text-based ((diagram)) in your documentation.
 
-You can use all the formats supported in our Kroki instance; more information at https://vshn-kroki.apps.cloudscale-lpg-2.appuio.cloud/ and https://kroki.io.
+You can use all the formats supported in our Kroki instance; more information at https://kroki.vshn.net/ and https://kroki.io.
 
 [ditaa, diagram-sample, svg]
 ....
