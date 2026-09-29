@@ -1,5 +1,30 @@
 = Cookiecutter Template for Antora Documentation Sites
 
+[IMPORTANT]
+====
+*Archived, September 2026. Do not generate new sites from this template.*
+
+What it produces is several years behind what the documentation sites actually run:
+
+[cols="1,1,1"]
+|===
+| | This template | What the sites run now
+
+| Antora | 2.3.3 | 3.1.14.1
+| UI bundle | vshn 2.0.15, or a fork | vshn/antora-ui-default v2.8.0 and newer
+| nginx image | Docker Hub `vshn/nginx:1.21.1.2` | `ghcr.io/vshn/nginx:1.31.6.2`
+| Search | a second container, `embedded-search-engine` with a Lunr index behind `/search` | a Pagefind index built into the site image, searched in the reader's browser
+| Analytics | Google Analytics | Plausible, proxied through the site's own domain
+| Deployment | OpenShift `DeploymentConfig`, a route on `appuioapp.ch` | per site
+|===
+
+A site generated from here would need the whole 2026 migration done to it before it could ship:
+Antora 3, the current UI, Pagefind instead of the search container, and a supported nginx image.
+
+Start from a current site instead, for example https://github.com/vshn/appcat-user-docs[vshn/appcat-user-docs],
+which is small, on GitHub, and carries the current build, search, analytics and deployment shape.
+====
+
 This project provides a https://cookiecutter.readthedocs.io/[Cookiecutter] template for creating https://antora.org/[Antora] documentation websites.
 
 == Usage
